@@ -7,6 +7,7 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../helpers/config';
 // Components
 import Grid from '../components/Grid';
 import Spinner from '../components/Spinner';
+import BreadCrumbs from '../components/BreadCrumbs';
 
 // Hook
 import { useMovieFetch } from '../hooks/useMovieFetch';
@@ -19,6 +20,7 @@ const Movie = () => {
 
 	return (
 		<>
+			<BreadCrumbs movieTitle={movie.title} />
 			<div>Movie</div>
 		</>
 	);
