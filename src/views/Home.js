@@ -26,6 +26,9 @@ const Home = () => {
 		setSearchTerm,
 		setIsLoadingMore,
 	} = useHomeFetch();
+
+	if (error) return <div>...Opps, aconteceu algo de errado!</div>;
+
 	return (
 		<>
 			{!loading && state.results[0] ? (

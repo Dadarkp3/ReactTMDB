@@ -8,6 +8,7 @@ import { IMAGE_BASE_URL, POSTER_SIZE } from '../helpers/config';
 import Grid from '../components/Grid';
 import Spinner from '../components/Spinner';
 import BreadCrumbs from '../components/BreadCrumbs';
+import MovieInfo from '../components/MovieInfo';
 
 // Hook
 import { useMovieFetch } from '../hooks/useMovieFetch';
@@ -16,12 +17,15 @@ import NoImage from '../assets/images/no_image.jpg';
 
 const Movie = () => {
 	const { movieId } = useParams();
-	const { state: movie, loadingo, error } = useMovieFetch(movieId);
+	const { state: movie, loading, error } = useMovieFetch(movieId);
+
+	if (loading) return <Spinner />;
+	if (error) return <div>...Opps, aconteceu algo de estranho!</div>;
 
 	return (
 		<>
 			<BreadCrumbs movieTitle={movie.title} />
-			<div>Movie</div>
+			<MovieInfo movie={movie} />
 		</>
 	);
 };
