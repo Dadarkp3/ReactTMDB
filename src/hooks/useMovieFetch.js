@@ -43,5 +43,5 @@ export const useMovieFetch = (movieId) => {
 };
 
 useMovieFetch.propTypes = {
-	movieId: PropTypes.string,
+	movieId: PropTypes.number,
 }
