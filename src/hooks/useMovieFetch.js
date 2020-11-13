@@ -1,4 +1,6 @@
 import { useEffect, useState } from 'react';
+import PropTypes from 'prop-types';
+
 
 // API
 import API from '../services/API';
@@ -39,3 +41,7 @@ export const useMovieFetch = (movieId) => {
 
 	return { state, loading, error };
 };
+
+useMovieFetch.propTypes = {
+	movieId: PropTypes.string,
+}

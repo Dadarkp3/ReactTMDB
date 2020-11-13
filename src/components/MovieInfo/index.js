@@ -1,5 +1,6 @@
 import React from 'react';
 import { IMAGE_BASE_URL, POSTER_SIZE } from '../../helpers/config';
+import PropTypes from 'prop-types';
 
 // Components
 import Thumb from '../../components/Thumb';
@@ -42,5 +43,9 @@ const MovieInfo = ({ movie }) => (
 		</Content>
 	</Wrapper>
 );
+
+MovieInfo.propTypes = {
+	movie: PropTypes.object
+}
 
 export default MovieInfo;

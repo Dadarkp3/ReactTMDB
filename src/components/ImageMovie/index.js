@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 
 // Styles
 import { Wrapper, Content, Text } from './styles.js';
@@ -13,5 +14,12 @@ const ImageMovie = ({ image, title, text }) => (
 		</Content>
 	</Wrapper>
 );
+
+ImageMovie.propTypes = {
+	image: PropTypes.string,
+	title: PropTypes.string,
+	text: PropTypes.string
+}
+
 
 export default ImageMovie;
