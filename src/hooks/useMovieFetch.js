@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react';
-import PropTypes from 'prop-types';
 
+// Helpers
+import {isPersistedState} from '../helpers/helpers'; 
 
 // API
 import API from '../services/API';
@@ -35,13 +36,18 @@ export const useMovieFetch = (movieId) => {
 				setError(true);
 			}
 		};
-
+		const sessionState = isPersistedState(movieId);
+		if(sessionState){
+			setState(sessionState);
+			setLoading(false);
+			return
+		}
 		fetchMovie();
 	}, [movieId]);
 
+	useEffect(()=> {
+		sessionStorage.setItem(movieId, JSON.stringify(state));
+	}, [movieId, state]);
+
 	return { state, loading, error };
 };
-
-useMovieFetch.propTypes = {
-	movieId: PropTypes.number,
-}
